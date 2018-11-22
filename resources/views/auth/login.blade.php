@@ -59,7 +59,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <center><a href="{{ route('eo.auth.login') }}">click here to login as Event Organizer</a></center>
                                 </form>
                             </div>
                         </div>

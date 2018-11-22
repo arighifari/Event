@@ -1,11 +1,6 @@
 @extends('navbar')
 @section('navbar')
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -84,85 +79,65 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
         <!--banner Slider starts Here-->
     </div>
-
-
 </div>
 <!-- //banner -->
 <!-- header -->
 <!-- //header -->
 <!-- ser_agile -->
-<div class="ser_agile">
+<div class="">
     <div class="container">
         <h2 class="heading-agileinfo">Welcome<span>Events is a professionally managed Event</span></h2>
         <p>Masagni dolores eoquie int Basmodi temporant, ut laboreas dolore magnam aliquam kuytase uaeraquis autem vel eum iure reprehend.Unicmquam eius, Basmodi temurer sehsMunim.Masagni dolores eoquie int Basmodi temporant, ut laboreas dolore magnam aliquam kuytase uaeraquis autem vel eum iure reprehend.</p>
-        <div class="ser_w3l">
-            <div class="outer-wrapper">
-                <div class="inner-wrapper">
-                    <div class="icon-wrapper">
-                        <i class="fa fa-birthday-cake" aria-hidden="true"></i>
-                    </div>
-                    <div class="content-wrapper">
-                        <h4>Birthday</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, magni.</p>
-                    </div>
-                </div>
+        <div class="row">
+            @foreach($events as $key=> $event)
+            <div class="col-md-6">
+                <table>
+                    <tr>
+                        <td><label for="">Nama Event</label></td>
+                        <td>:</td>
+                        <td>{{$event->nama_Event}}</td>
+                    </tr>
+                    <tr>
+                        <td><label for=""> Gambar </label></td>
+                        <td>:</td>
+                        <td><img src="{{asset('storage/'.$event->Gambar)}}" alt="" style="width: 40%; height: 20%"></td>
+
+                    </tr>
+                    <tr>
+                        <td><label for="">Alamat Event</label></td>
+                        <td>:</td>
+                        <td>{{$event->alamat_Event}}</td>
+                    </tr>
+                    <tr>
+                        <td><label for="">Kota</label></td>
+                        <td>:</td>
+                        <td>{{$event->Kota}}</td>
+                    </tr>
+                    <tr>
+                        <td><label for="">Kategori</label></td>
+                        <td>:</td>
+                        <td>{{$event->Kategori}}</td>
+                    </tr>
+                    <tr>
+                        <td><label for="">Deskripsi</label></td>
+                        <td>:</td>
+                        <td>{{$event->deskripsi_Event}}</td>
+                    </tr>
+                    <tr>
+                        <td><label for="">Harga Event</label></td>
+                        <td>:</td>
+                        <td>{{$event->harga_Event}}</td>
+                    </tr>
+                    <tr>
+                        <td><label for="">Jadwal</label></td>
+                        <td>:</td>
+                        <td>{{$event->jadwal_Event}}</td>
+                    </tr>
+                    <br>
+
+                </table>
             </div>
-            <div class="outer-wrapper">
-                <div class="inner-wrapper">
-                    <div class="icon-wrapper">
-                        <i class="fa fa-headphones" aria-hidden="true"></i>
-                    </div>
-                    <div class="content-wrapper">
-                        <h4>Sangeet</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, magni.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="outer-wrapper">
-                <div class="inner-wrapper">
-                    <div class="icon-wrapper">
-                        <i class="fa fa-globe" aria-hidden="true"></i>
-                    </div>
-                    <div class="content-wrapper">
-                        <h4>Weddings</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, magni.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="outer-wrapper">
-                <div class="inner-wrapper">
-                    <div class="icon-wrapper">
-                        <i class="fa fa-camera" aria-hidden="true"></i>
-                    </div>
-                    <div class="content-wrapper">
-                        <h4>Photography</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, magni.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="outer-wrapper">
-                <div class="inner-wrapper">
-                    <div class="icon-wrapper">
-                        <i class="fa fa-cutlery" aria-hidden="true"></i>
-                    </div>
-                    <div class="content-wrapper">
-                        <h4>Catering</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, magni.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="outer-wrapper">
-                <div class="inner-wrapper">
-                    <div class="icon-wrapper">
-                        <i class="fa fa-tasks" aria-hidden="true"></i>
-                    </div>
-                    <div class="content-wrapper">
-                        <h4>Promotions</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, magni.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="clearfix"></div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -201,114 +176,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </div>
 <!-- //Stats -->
 
-<!-- showcase_w3layouts -->
-<div class="showcase_w3layouts">
-    <div class="container">
-        <h3 class="heading-agileinfo">Services<span>Events is a professionally managed Event</span></h3>
-        <div class="our_agile-info">
-            <div class="showcase">
-                <div class="thumbnail thumbnail--awesome">
-                    <div class="thumbnail__overlay">
-
-                    </div>
-                </div>
-                <div class="desc">
-
-                    <h4>Birthday</h4>
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut l
-                    </p>
-                </div>
-            </div>
-
-            <div class="showcase showcase--inverted">
-                <div class="desc">
-
-                    <h4>Wedding</h4>
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut l
-                    </p>
-                </div>
-                <div class="thumbnail thumbnail--awesome1">
-                    <div class="thumbnail__overlay">
-
-                    </div>
-                </div>
-            </div>
-            <div class="showcase">
-                <div class="thumbnail thumbnail--awesome2">
-                    <div class="thumbnail__overlay">
-
-                    </div>
-                </div>
-                <div class="desc">
-
-                    <h4>Sangeet</h4>
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut l
-                    </p>
-                </div>
-            </div>
-            <div class="showcase showcase--inverted">
-                <div class="desc">
-
-                    <h4>Catering</h4>
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut l
-                    </p>
-                </div>
-                <div class="thumbnail thumbnail--awesome3">
-                    <div class="thumbnail__overlay">
-
-                    </div>
-                </div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-    </div>
-</div>
-<!-- //showcase_w3layouts -->
-<section class="about_agile">
-    <div class="container">
-        <h3 class="heading-agileinfo white-w3ls">Event Booking<span class="black-w3ls">Events is a professionally managed Event</span></h3>
-        <div class="about-grids">
-
-            <div class="abt-rt-grid">
-                <div class="w3ls-grid-head text-center">
-                    <h3>online event booking </h3>
-                </div>
-                <div class="abt-form text-center">
-                    <form action="#" method="post">
-                        <div class="col-sm-4 col-xs-4 w3ls-lt-form">
-                            <div class="w3ls-pr">
-                                <select class="sel" required="">
-                                    <option value="">location</option>
-                                    <option value="">location2</option>
-                                    <option value="">location3</option>
-                                    <option value="">location4</option>
-                                    <option value="">location5</option>
-                                </select>
-                                <input type="text" name="Name" placeholder="Name">
-                            </div>
-                        </div>
-                        <div class="col-sm-4 col-xs-4 w3ls-lt-form">
-                            <div class="w3ls-pr">
-                                <input type="date" name="date" required="required">
-                                <input type="tel" name="phone no" placeholder="Phone no" required="required">
-                            </div>
-                        </div>
-                        <div class="col-sm-4 col-xs-4 w3ls-lt-form">
-                            <div class="w3ls-pr">
-                                <input type="time" name="time" required="required">
-                                <input type="email" name="email" placeholder="Email" required="required">
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                        <input type="submit" value="Book Now">
-
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--testimonials-->
 <div class="testimonials">
     <div class="container">
         <h3 class="heading-agileinfo">Event Manager Says<span>Events is a professionally managed Event</span></h3>
@@ -409,7 +276,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <div class="container">
         <div class="col-md-6 col-sm-6 col-xs-6 copy-right-grids">
             <div class="copy-left">
-                <p>&copy; 2017 Events. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+                <p>&copy; 2017 Events. All rights reserved | Design by Ghifari</p>
             </div>
         </div>
         <div class="col-md-6 col-sm-6 col-xs-6 top-middle">
