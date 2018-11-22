@@ -1,6 +1,6 @@
-@extends('navbar')
+@extends('navbarEO')
 
-@section('navbar')
+@section('navbarEO')
 
     <head>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -25,7 +25,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <form style="padding-top: 10px" id="login-form" action="{{route('login')}}" method="POST" role="form" style="display: block;">
+                                <form style="padding-top: 10px" id="login-form" action="{{route('eo.auth.loginAdmin')}}" method="POST" role="form" style="display: block;">
                                     @csrf
                                     <div class="form-group">
                                         <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
@@ -59,7 +59,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <center><a href="{{ route('eo.auth.login') }}">click here to login as Event Organizer</a></center>
+                                    <center><a href="{{ route('login') }}">click here to login as Event Holder</a></center>
                                 </form>
                             </div>
                         </div>

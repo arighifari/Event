@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\event;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,10 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $events = event::all()->random('6');
-        return view('event' , [
-            'events' => $events
-        ]);
+        return view('event');
     }
 
+    public function form()
+    {
+        return view('InputEvent');
+    }
 }

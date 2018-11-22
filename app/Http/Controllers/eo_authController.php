@@ -2,19 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\eoManagement;
 use Illuminate\Http\Request;
+use App\eo_auth;
 
-class EoManagementController extends Controller
+class eo_authController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:eo_auth',['only' => 'index','edit']);
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function dashboard()
     {
-
+        return view('EODashboard');
     }
 
     /**
@@ -24,7 +28,7 @@ class EoManagementController extends Controller
      */
     public function create()
     {
-
+        return view('loginEO.register');
     }
 
     /**
@@ -35,16 +39,31 @@ class EoManagementController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name'          => 'required',
+            'email'         => 'required',
+            'password'      => 'required',
+            'no_telp'       => 'required',
+            'alamat'        => 'required'
+        ]);
 
+        $admins = new eo_auth;
+        $admins->nama = $request->name;
+        $admins->email = $request->email;
+        $admins->password=bcrypt($request->password);
+        $admins->no_telp = $request->no_telp;
+        $admins->alamat = $request->alamat;
+        $admins->save();
+        return redirect()->route('eo.auth.login');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\eoManagement  $eoManagement
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(eoManagement $eoManagement)
+    public function show($id)
     {
         //
     }
@@ -52,10 +71,10 @@ class EoManagementController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\eoManagement  $eoManagement
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(eoManagement $eoManagement)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +83,10 @@ class EoManagementController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\eoManagement  $eoManagement
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, eoManagement $eoManagement)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +94,10 @@ class EoManagementController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\eoManagement  $eoManagement
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(eoManagement $eoManagement)
+    public function destroy($id)
     {
         //
     }
