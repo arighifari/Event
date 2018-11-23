@@ -26,11 +26,6 @@
                         <div class="col-lg-12">
                             <form id="" action="{{route('form.store')}}" method="POST" role="form" style="display: block;" enctype="multipart/form-data" required>
                                 {{csrf_field()}}
-                                @foreach($users as $key => $users)
-                                <div class="form-group" >
-                                    <input type="hidden" class="form-control" id="eventname" name="user_id" placeholder="Event Name" value="{{$users->id}}">
-                                </div>
-                                @endforeach
                                 <div class="form-group" >
                                     <label for="eventname" class="control-label">Nama Event</label>
                                     <input type="text" class="form-control" id="eventname" name="nama_Event" placeholder="Event Name" required>

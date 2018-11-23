@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $events = event::all()->random('6');
+        $events = event::all()->random('3');
         return view('event' , [
             'events' => $events
         ]);

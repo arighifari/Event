@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\event;
 use App\User;
 use Illuminate\Http\Request;
+use Auth;
 
 
 class EventController extends Controller
@@ -20,7 +21,10 @@ class EventController extends Controller
         return view('InputEvent' , [
             'users' => $users
         ]);
+    }
 
+    public function cek(){
+        return session()->all();
     }
 
     /**
@@ -41,10 +45,9 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-
         $path = $request->file('Gambar')->store('Gambar', 'public');
         Event::create([
-            'user_id'=> $request->user_id,
+            'user_id'=> session('login_web_59ba36addc2b2f9401580f014c7f58ea4e30989d'),
             'nama_Event'=> $request->nama_Event,
             'alamat_Event'=> $request->alamat_Event,
             'Kota'=> $request->Kota,
@@ -54,7 +57,6 @@ class EventController extends Controller
             'jadwal_Event'=> $request->jadwal_Event,
             'Gambar'=> $path
         ]);
-//          $path2 = Storage::putFile('Gambar', $request->file('Gambar'));
         return redirect('/');
     }
 
@@ -75,9 +77,13 @@ class EventController extends Controller
      * @param  \App\event  $event
      * @return \Illuminate\Http\Response
      */
-    public function edit(event $event)
+    public function edit($event)
     {
-        //
+        $tampung = event::where('id', $event);
+        $tampung->update([
+            'eo_id' => session('login_eo_auth_59ba36addc2b2f9401580f014c7f58ea4e30989d'),
+        ]);
+        return redirect('eo');
     }
 
     /**

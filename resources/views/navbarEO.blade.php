@@ -13,7 +13,6 @@
 	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- Custom Theme files -->
-    {{--<link href="{{asset('css/bootstrap.css')}}" type="text/css" rel="stylesheet" media="all">--}}
     <link href="{{asset('css/bootstrap.css')}}" type="text/css" rel="stylesheet" media="all">
     <link href="{{asset('css/style.css')}}" type="text/css" rel="stylesheet" media="all">
     <link href="{{asset('css/font-awesome.css')}}" rel="stylesheet">		<!-- font-awesome icons -->
@@ -48,21 +47,19 @@
                         <li class="hidden"><a class="page-scroll" href="#page-top"></a>	</li>
                         <li><a class="hvr-sweep-to-right" href="{{route('home')}}">Home</a></li>
                         <li><a class="hvr-sweep-to-right" href="about.html">About</a></li>
-
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link hvr-sweep-to-right" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('eo.auth.login') }}">{{ __('Login') }}</a>
                             </li>
                             <li class="nav-item">
                                 @if (Route::has('register'))
-                                    <a class="nav-link hvr-sweep-to-right" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('eo.register') }}">{{ __('Register') }}</a>
                                 @endif
                             </li>
                         @else
-                            <li><a class="hvr-sweep-to-right" href="events.html">My Event</a></li>
-                            <li><a class="hvr-sweep-to-right" href="{{ route('form.index') }}">Post Event</a></li>
-                            <li><a class="hvr-sweep-to-right"> {{ Auth::user()->name }}</a></li>
-                            <li><a class="hvr-sweep-to-right" href="{{ route('logout_user') }}">Logout</a></li>
+                            <li><a class="hvr-sweep-to-right" href="{{ route('eo.mybooking') }}">Booked Event</a></li>
+                            <li><a class="hvr-sweep-to-right"> {{ Auth::user()->nama }}</a></li>
+                            <li><a class="hvr-sweep-to-right" href="{{ route('eo.auth.logout') }}">Logout</a></li>
                         @endguest
                     </ul>
                 </div>
@@ -72,4 +69,4 @@
         </nav>
     </div>
 </body>
-@yield('navbar')
+@yield('navbarEO')

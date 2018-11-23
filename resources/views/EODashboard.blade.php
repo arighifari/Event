@@ -1,7 +1,7 @@
-@extends('navbar')
-@section('navbar')
+@extends('navbarEO')
+@section('navbarEO')
 
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Events a Wedding Category Bootstrap Responsive website Template | Home :: w3layouts</title>
@@ -93,18 +93,18 @@
         <div class="row">
             @foreach($events as $key=> $event)
                 <div class="col-sm-4 d-flex justify-content-center">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" width="300" height="150" src="{{asset('/storage/'.$event->Gambar)}}" alt="{{$event->nama_Event}} 's Image">
-                    <div class="card-body">
-                        <h5 class="card-title">{{$event->nama_Event}}</h5>
-                        <p>Alamat Event : {{$event->alamat_Event}}</p>
-                        <p>Kota Event : {{$event->Kota}}</p>
-                        <p>Kateogry Event : {{$event->Kategor}}</p>
-                        <p>Deskipsi Event : {{$event->deskripsi_Event}}</p>
-                        <br>
-                        <a href="#" class="btn btn-primary">See Detail</a>
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" width="300" height="150" src="{{asset('/storage/'.$event->Gambar)}}" alt="{{$event->nama_Event}} 's Image">
+                        <div class="card-body">
+                            <h5 class="card-title">{{$event->nama_Event}}</h5>
+                            <p>Alamat Event : {{$event->alamat_Event}}</p>
+                            <p>Kota Event : {{$event->Kota}}</p>
+                            <p>Kategori Event : {{$event->Kategori}}</p>
+                            <p>Deskipsi Event : {{$event->deskripsi_Event}}</p>
+                            <br>
+                            <a href="{{ route('form.edit', $event->id) }}" class="btn btn-primary">Book Event</a>
+                        </div>
                     </div>
-                </div>
                 </div>
             @endforeach
         </div>

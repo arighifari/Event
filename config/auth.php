@@ -45,6 +45,14 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+        'eo_auth' => [
+            'driver' => 'session',
+            'provider' => 'eo_auth',
+        ],
+        'eo_auth-api' => [
+            'driver' => 'token',
+            'provider' => 'eo_auth',
+        ],
     ],
 
     /*
@@ -69,7 +77,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-
+        'eo_auth' => [
+            'driver' => 'eloquent',
+            'model' => App\eo_auth::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -94,6 +105,11 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'eo_auth' => [
+            'provider' => 'eo_auth',
             'table' => 'password_resets',
             'expire' => 60,
         ],
